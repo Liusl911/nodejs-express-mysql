@@ -9,3 +9,10 @@ exports.username = username
 exports.sayhello = function(){
     console.log('Hello')
 }
+
+// 注意：当 exports 指向的对象改变了，仍然以 module.exports 指向的对象为准
+
+// exports = {
+//     a: '1230',
+//     b: '4560'
+// }
