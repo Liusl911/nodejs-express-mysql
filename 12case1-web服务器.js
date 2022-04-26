@@ -18,9 +18,9 @@ server.on('request', (req, res) => {
     // const fpath = path.join(__dirname, url)
     // 5.1 预定义一个空白的文件存放路径
     let fpath = ''
-    if(url === '/'){
+    if (url === '/') {
         fpath = path.join(__dirname, '/case1/index.html')
-    }else{
+    } else {
         // 在后端补全 /case1
         // /index.html
         // /index.css
@@ -30,7 +30,7 @@ server.on('request', (req, res) => {
     // 4.1 根据"映射"过来的文件路径读取文件
     fs.readFile(fpath, (err, dataStr) => {
         // 4.2 读取文件失败后，向客户端响应固定的“错误消息”
-        if(err) return res.end('404 Not found.')
+        if (err) return res.end('404 Not found.')
         // 4.3 读取文件成功后，将“读取到的内容”响应给客户端
         res.end(dataStr)
     })
