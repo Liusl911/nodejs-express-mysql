@@ -1,0 +1,8 @@
+{
+    "name": "inno-tools",
+    "version": "1.0.1",
+    "main": "index.js",
+    "description": "一款简单的集成工具",
+    "keywords": ["time", "date", "escope"],
+    "license": "ISC"
+}
