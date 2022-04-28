@@ -1,5 +1,4 @@
 // 1. 导入 express
-const { query } = require('express')
 const express = require('express')
 
 // 2. 创建 web 服务器
@@ -19,6 +18,13 @@ app.get('/', (req, res) => {
     // 注意：默认情况下，req.query 是一个空对象
     console.log(req.query)
     res.send(req.query)
+})
+// 获取 URL 中的动态参数
+app.get('/user/:id/:name', (req, res) => {
+    // req.params 默认是一个空对象
+    // params 存放着通过 : 动态匹配到的参数值
+    console.log(req.params)
+    res.send(req.params)
 })
 
 // 3. 启动 web 服务器
