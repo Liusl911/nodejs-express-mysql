@@ -1,8 +1,8 @@
 # nodejs-express+mysql
 
-## 
+## part1
 ```js
-part1 初识node.js内置模块：fs path 
+初识node.js内置模块：fs path 
 ```
 
 ## part2
