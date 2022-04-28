@@ -3,7 +3,6 @@
 */
 
 const fs = require('fs')
-const { resolve } = require('path')
 const path = require('path')
 
 // 正则匹配 <style></style> <script></script>
