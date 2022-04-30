@@ -11,6 +11,7 @@
     <button id="btnGET">GET请求</button>
     <button id="btnPOST">POST请求</button>
     <button id="btnDELETE">DELETE请求</button>
+    <button id="btnJSONP">JSONP请求</button>
 
     <script>
         $(function(){
@@ -43,6 +44,18 @@
                 $.ajax({
                     type: 'DELETE',
                     url: 'http:///127.0.0.1/api/delete',
+                    success: function(res){
+                        console.log(res)
+                    }
+                })
+            })
+
+            // 4. 测试 JSONP 接口
+            $('#btnJSONP').on('click', function(){
+                $.ajax({
+                    type: 'GET',
+                    url: 'http:///127.0.0.1/api/jsonp',
+                    dataType: 'jsonp',
                     success: function(res){
                         console.log(res)
                     }
