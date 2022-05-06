@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
 --
 -- Host: localhost    Database: my_db_01
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,7 +33,7 @@ CREATE TABLE `emp` (
   `DEPTNO` int DEFAULT NULL COMMENT '部门编号',
   PRIMARY KEY (`EMPNO`),
   UNIQUE KEY `EMPNO_UNIQUE` (`EMPNO`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='员工信息';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='员工信息';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `emp` (
 
 LOCK TABLES `emp` WRITE;
 /*!40000 ALTER TABLE `emp` DISABLE KEYS */;
-INSERT INTO `emp` VALUES (1,'张三','人事行政主管',5,'2022-01-01',10000.00,300.00,1),(2,'李四','财务主管',5,'2021-10-10',9500.00,0.00,2),(3,'王五','技术总监',5,'2021-05-06',20000.00,500.00,3),(4,'赵六','Java工程师',3,'2022-02-02',12000.00,300.00,3),(5,'吴林','总经理',NULL,'2020-10-01',30000.00,0.00,4),(6,'陈金木','C++工程师',3,'2021-10-11',11000.00,NULL,3),(7,'李庆','Web工程师',3,'2022-01-20',10000.00,100.00,3);
+INSERT INTO `emp` VALUES (1,'张三','人事行政主管',5,'2022-01-01',10000.00,300.00,1),(2,'李四','财务主管',5,'2021-10-10',9500.00,0.00,2),(3,'王五','技术总监',5,'2021-05-06',20000.00,500.00,3),(4,'赵六','Java工程师',3,'2022-02-02',12000.00,300.00,3),(5,'吴林','总经理',NULL,'2020-10-01',30000.00,0.00,4),(6,'陈金木','C++工程师',3,'2021-10-11',11000.00,NULL,3),(7,'李庆','Web工程师',3,'2022-01-20',10000.00,100.00,3),(8,'林墨染','Web工程师',3,'2022-02-19',8000.00,100.00,3);
 /*!40000 ALTER TABLE `emp` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-06 16:46:31
+-- Dump completed on 2022-05-06 22:25:13
