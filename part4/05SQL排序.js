@@ -34,9 +34,4 @@
     select ename,job,sal from emp where job = 'Web工程师' order by sal desc;
     注意：执行顺序为 from --> where --> select --> order by
 
-
-
-
-
-
 */
