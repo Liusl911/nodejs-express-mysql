@@ -7,7 +7,7 @@ const path = require('path')
 
 // 2.1 创建 web 服务器
 const server = http.createServer()
-// 2.2 监听 web 服务去的 request 事件
+// 2.2 监听 web 服务器的 request 事件
 server.on('request', (req, res) => {
     // 3.1 获取客户端请求的 url 地址
     //     /case1/index.html

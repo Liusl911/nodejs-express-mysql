@@ -9,7 +9,7 @@ const path = require('path')
 // \s表示任意空白字符 \S表示任意非空白字符 *表示匹配任意多个
 const regStyle = /<style>[\s\S]*<\/style>/
 const regScript = /<script>[\s\S]*<\/script>/
-// reg.exec() 提取符合正则的内容 匹配得到返回一个数组，数组第一项即为匹配到的内容；匹配不带返回null。
+// reg.exec() 提取符合正则的内容 匹配得到返回一个数组，数组第一项即为匹配到的内容；匹配不到返回null。
 
 // 读取source文件夹中的index.html文件
 fs.readFile(path.join(__dirname, './source/index.html'), 'utf8', function (err, dataStr) {

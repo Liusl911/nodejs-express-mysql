@@ -109,7 +109,7 @@
         select ename,(sal+comm)*12 as yearsal from emp;
         重点：所有数据库规定，只要有NULL参与的运算结果一定是NULL。
         使用ifnull()函数：
-        select ename,ifnull(sal+comm,0) as yearsal from emp;
+        select ename,(sal + ifnull(comm,0)) * 12 as yearsal from emp;
 
     ifnull() 空处理函数？
         ifnull(可能为NULL的数据,被当作什么处理)：属于单行处理函数。
