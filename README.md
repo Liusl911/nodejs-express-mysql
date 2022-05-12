@@ -36,4 +36,5 @@
 // 条件查询语句
 // SQL排序
 // 分组函数、group by、having
+// distinct去重
 ```
