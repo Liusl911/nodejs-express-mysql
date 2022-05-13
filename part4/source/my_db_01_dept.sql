@@ -38,7 +38,7 @@ CREATE TABLE `dept` (
 
 LOCK TABLES `dept` WRITE;
 /*!40000 ALTER TABLE `dept` DISABLE KEYS */;
-INSERT INTO `dept` VALUES (1,'行政部门','A区'),(2,'财务部门','B区'),(3,'研发中心','C区'),(4,'总经办','D区');
+INSERT INTO `dept` VALUES (1,'行政部门','A区'),(2,'财务部门','B区'),(3,'研发中心','C区'),(4,'总经办','D区'),(5,'品质部','E区');
 /*!40000 ALTER TABLE `dept` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-10 17:26:28
+-- Dump completed on 2022-05-13 17:52:38
