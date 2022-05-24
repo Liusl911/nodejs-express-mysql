@@ -42,4 +42,5 @@
 // union的使用
 // limit以及通用分页SQL
 // 表的操作
+// 约束(Constraint)
 ```

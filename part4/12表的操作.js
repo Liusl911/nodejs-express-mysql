@@ -195,8 +195,20 @@
     删除所有记录？
         delete from emp1;
 
-    怎么删除大表？（重点）
+    怎么删除大表中的数据？（重点）
         truncate table 表名; // 表被截断，不可回滚，永久丢失。
+
+    怎么删除表？
+        drop table 表名; // 这个通用。
+        drop table if exists 表名; // Oracle不支持这种写法。
+
+12、对于表结构的修改，使用工具操作即可。
+    在实际开发中，表一旦设计好之后，对表结构的修改是很少的。
+    修改表结构的语句不会出现在node.js代码当中，
+    出现在node.js代码当中的sql包括insert delete update select（这些都是表中的数据操作。）
+
+    增删改查有一个术语：CRUD操作
+    Create(增) Retrieve(检索) Update(改) Delete(删)
 
 
 
