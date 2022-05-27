@@ -106,9 +106,9 @@
         - 主键的作用：主键值是这行记录在这张表当中的唯一标识。（例如一个人的身份证号码。）
 
     *主键的分类？
-        根据主键字段的字段数量来互粉：
+        根据主键字段的字段数量来划分：
             单一主键（推荐使用，常用的。）
-            复合主键（多个字段联合起来添加一个主键约束）（符合主键不建议使用，因为复合主键违背三范式。）
+            复合主键（多个字段联合起来添加一个主键约束）（复合主键不建议使用，因为复合主键违背三范式。）
         根据主键性质来划分：
             自然主键：主键值最好是一个和业务没有任何关系的自然数。（推荐使用）
             业务主键：主键值和系统的业务挂钩，例如：拿着银行卡的卡号做主键，拿着身份证号码作为主键。（不推荐使用）
@@ -153,6 +153,95 @@
         select * from t_user;
 
         提示：Oracle当中也提供了一个自增机制，叫做：序列(sequence)对象。
+
+13.5、外键约束
+    
+    *相关术语：
+        外键约束：foreign key
+        外键字段：添加有外键约束饿字段
+        外键值：外键字段中的每一个值
+
+    *业务背景：
+        请设计数据库表，用来维护学生和班级的信息？
+            第一种方案：一张表存储所有数据
+            no(pk)      name        classno         classname
+            ----------------------------------------------------------------
+            1           zs          101             厦门海沧实验小学一年级1班
+            2           ls          101             厦门海沧实验小学一年级1班
+            3           ww          102             厦门海沧实验小学一年级2班
+            4           zl          103             厦门海沧实验小学一年级2班
+            缺点：冗余。【不推荐】
+
+            第二重方案：两张表（班级表和学生表）
+            t_class 班级表
+            cno(pk)     cname
+            ------------------------------------
+            101         厦门海沧实验小学一年级1班
+            102         厦门海沧实验小学一年级2班
+
+            t_student 学生表
+            sno(pk)     sname       classno(该字段添加外键约束fk)
+            ------------------------------------------------
+            1           zs          101
+            2           ls          101
+            3           ww          102
+            4           zl          102
+
+    *将以上表的建表语句写出来：
+        t_student表中的classno字段引用t_class表中的cno字段，此时t_student表叫做子表，t_class表叫做父表。
+        操作顺序要求：
+            删除数据的时候，先删除子表，再删除父表。
+            添加数据的时候，先添加父表，再添加子表。
+            创建表的时候，先创建父表，再创建子表。
+            删除表的时候，先删除子表，再删除父表。
+
+        drop table if exists t_student;
+        drop table if exists t_class;
+
+        create table t_class(
+            cno int,
+            cname varchar(255),
+            primary key(cno)
+        );
+
+        create table t_student(
+            sno int,
+            sname varchar(255),
+            classno int,
+            primary key(sno),
+            foreign key(classno) references t_class(cno)        // 记住了
+        );
+
+        insert into t_class values(101, '厦门海沧实验小学一年级1班');
+        insert into t_class values(102, '厦门海沧实验小学一年级2班');
+
+        insert into t_student values(1, 'zs', 101);
+        insert into t_student values(2, 'ls', 101);
+        insert into t_student values(3, 'ww', 102);
+        insert into t_student values(4, 'zl', 102);
+
+        select * from t_class;
+        select * from t_student;
+
+        insert into t_student values(5, 'mq', 103);
+        ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`my_db_01`.`t_student`, CONSTRAINT `t_student_ibfk_1` FOREIGN KEY (`classno`) REFERENCES `t_class` (`cno`))
+
+    *外键值可以为NULL吗？外键值可以为NULL。
+        insert into t_student(sno, sname) values(5, 'mq');
+        select * from t_student;
+        +------+-------+---------+
+        | sno  | sname | classno |
+        +------+-------+---------+
+        |    1 | zs    |     101 |
+        |    2 | ls    |     101 |
+        |    3 | ww    |     102 |
+        |    4 | zl    |     102 |
+        |    5 | mq    |    NULL |
+        +------+-------+---------+
+
+    *外键字段引用其他表的某个字段的时候，被引用的字段必须是主键吗？
+        注意：被引用的字段不一定是主键，但至少具有unique约束。（唯一约束。）（重复了的话，到底引用了谁？分不清！）
+
 
 
 */ 
